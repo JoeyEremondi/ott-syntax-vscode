@@ -1,0 +1,26 @@
+{
+    "name": "ott-syntax",
+    "displayName": "ott-syntax",
+    "description": "Syntax highlighting for the Ott Semantics Language",
+    "version": "0.0.1",
+    "publisher": "JoeyEremondi",
+    "engines": {
+        "vscode": "^1.19.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "ott",
+            "aliases": ["Ott", "ott"],
+            "extensions": [".ott"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "ott",
+            "scopeName": "source.ott",
+            "path": "./syntaxes/ott.tmLanguage.json"
+        }]
+    }
+}

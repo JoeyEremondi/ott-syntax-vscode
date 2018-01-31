@@ -1,0 +1,76 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Ott",
+	"patterns": [{
+			"include": "#keywords"
+		},
+		{
+			"include": "#homs"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#linecomment"
+		},
+		{
+			"include": "#blockcomment"
+		},
+		{
+			"include": "#metaflags"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.command.ott",
+				"match": "\\b(metavar|indexvar|grammar|embed|subrules|contextrules|substitutions|single|multiple|freevars|defns|defn|by|homs|funs|fun|parsing|begincoqsection|endcoqsection|coqvariable|left|right|terminals|formula|judgement)\\b"
+			}]
+		},
+		"homs": {
+			"patterns": [{
+				"name": "entity.name.class.identifier.namespace.type.ott2",
+				"match": "\\b(coq-equality|coq|isa|hol|tex|lex|ocaml|repr-locally-nameless|phantom|texvar|isavar|holvar|ocamlvar|aux|icho|ichlo|ich|lem|ic|ch|ihtexlong|order|isasyn|isaprec|lemwcf|coq-universe|tex-preamble|coq-lib|isa-auxfn-proof|isa-subrule-proof|isa-proof|com)\\b"
+			}]
+		},
+		"metaflags": {
+			"patterns": [{
+				"name": "support.variable.property.ott",
+				"match": "\\b(M|S)\\b"
+			}]
+		},
+		"operators": {
+			"patterns": [{
+				"name": "constant.other.symbol.ott2",
+				"match": "::=|::|<::"
+			}]
+		},
+		"linecomment": {
+			"name": "comment.line.percent.ott",
+			"match": "(%)(?!(\\[=*\\[|\\]=*\\])).*$\n?",
+			"captures": {
+				"1": {
+					"name": "punctuation.definition.comment.ott"
+				}
+			}
+		},
+		"blockcomment": {
+			"begin": "{{com",
+			"end": "}}",
+			"contentName": "comment"
+		},
+		"strings": {
+			"name": "string.quoted.double.ott",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [{
+				"name": "constant.character.escape.ott",
+				"match": "\\\\."
+			}]
+		}
+	},
+	"scopeName": "source.ott"
+}
