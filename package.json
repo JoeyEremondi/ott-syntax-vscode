@@ -4,6 +4,7 @@
     "description": "Syntax highlighting for the Ott Semantics Language",
     "version": "0.0.1",
     "publisher": "JoeyEremondi",
+    "repository": "https://github.com/JoeyEremondi/ott-syntax-vscode",
     "engines": {
         "vscode": "^1.19.0"
     },

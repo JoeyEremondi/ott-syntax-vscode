@@ -1,65 +1,41 @@
-# ott-syntax README
+# ott-syntax-vscode
 
-This is the README for your extension "ott-syntax". After writing up a brief description, we recommend including the following sections.
+Provides syntax highlighting for the [Ott semantics tool](http://www.cl.cam.ac.uk/~pes20/ott/).
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+Right now, only syntax highlighting.
+The emphasis is on visually distinguishing the meta-language from the language being modeled.
+As a result, the files end up quite colorful.
 
-For example if there is an image subfolder under your extension project workspace:
+I've optimized this for the One Dark Pro theme, but it should look okay with any theme. Some
+classes might not get distinguished if your theme doesn't define colors for enough scopes, though.
 
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+I'm no expert when it comes to visual design, so pull-requests are welcome with regards
+to the color choices.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+Syntax highlighting recognize some languages within the `hom` blocks,
+if you have a language pack installed for that language.
+Reccomended packages to allow this are:
+
+* [VSCoq](https://marketplace.visualstudio.com/items?itemName=siegebell.vscoq) or [Coq](https://marketplace.visualstudio.com/items?itemName=ruoz.coq)
+* [Isabelle](https://marketplace.visualstudio.com/items?itemName=makarius.isabelle)
+* [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) or [LaTeX Language Support](https://marketplace.visualstudio.com/items?itemName=torn4dom4n.latex-support)
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+None so far.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+None so far, though I expect the highlighting to be buggy.
 
 ## Release Notes
 
 Users appreciate release notes as you update your extension.
 
-### 1.0.0
+### 0.0.1
 
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on OSX or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on OSX or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (OSX) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Initial release
