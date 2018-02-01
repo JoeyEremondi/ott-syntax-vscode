@@ -3,3 +3,8 @@
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+color.out
+colors.out
+.vscodeignore
+test.json
+test.ott
