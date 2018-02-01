@@ -8,3 +8,5 @@ colors.out
 .vscodeignore
 test.json
 test.ott
+dark_default.json
+syntaxes/coq.tmLanguage.json
