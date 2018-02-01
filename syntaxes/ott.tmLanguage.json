@@ -17,10 +17,10 @@
 			"include": "#homblock"
 		},
 		{
-			"include": "#metaflags"
+			"include": "#ruledecl"
 		},
 		{
-			"include": "#ruledecl"
+			"include": "#vardecl"
 		},
 		{
 			"include": "#builtindecl"
@@ -36,13 +36,19 @@
 		},
 		{
 			"include": "#substdecl"
+		},
+		{
+			"include": "#binddecl"
+		},
+		{
+			"include": "#bindgroup"
 		}
 	],
 	"repository": {
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.ott",
-				"match": "\\b(metavar|indexvar|grammar|embed|subrules|contextrules|substitutions|single|multiple|freevars|defns|defn|by|homs|funs|fun|parsing|begincoqsection|endcoqsection|coqvariable|left|right)\\b"
+				"match": "\\b(grammar|embed|subrules|contextrules|freevars|substitutions|single|multiple|defns|defn|by|homs|funs|fun|parsing|begincoqsection|endcoqsection|coqvariable|left|right)\\b"
 			}]
 		},
 		"homblock": {
@@ -124,16 +130,10 @@
 				}]
 			}]
 		},
-		"metaflags": {
-			"patterns": [{
-				"name": "support.function.ott",
-				"match": "\\b(M|S)\\b"
-			}]
-		},
 		"operators": {
 			"patterns": [{
 				"name": "constant.other.symbol.ott2",
-				"match": "<::"
+				"match": "<::|\\.\\.|\\.\\.\\.|\\.\\.\\.\\."
 			}]
 		},
 		"linecomment": {
@@ -148,7 +148,7 @@
 		"ruledecl": {
 			"patterns": [{
 				"name": "keyword",
-				"match": "^\\s*((?!formula|judgement|terminals)[_a-zA-Z]+)(\\s*,\\s*([_a-zA-Z]+))*\\s*({{.*}})*\\s*::(.*)\\s*::=",
+				"match": "^\\s*((?!formula|judgement|terminals)[_a-zA-Z]+)(\\s*,\\s*([_a-zA-Z0-9]+))*\\s*({{.*}})*\\s*::(.*)\\s*::=",
 				"captures": {
 
 					"1": {
@@ -165,6 +165,26 @@
 					},
 					"5": {
 						"name": "variable.ott"
+					}
+
+				}
+			}]
+		},
+		"vardecl": {
+			"patterns": [{
+				"match": "(metavar|indexvar)\\s([_a-zA-Z]+)((\\s*(,)\\s*([_a-zA-Z]+))*)\\s*(::=)",
+				"captures": {
+					"1": {
+						"name": "keyword.ott"
+					},
+					"2": {
+						"name": "entity.name.function.ott"
+					},
+					"3": {
+						"name": "entity.name.function.ott"
+					},
+					"7": {
+						"name": "keyword"
 					}
 
 				}
@@ -221,7 +241,7 @@
 		},
 		"substdecl": {
 			"patterns": [{
-				"match": "^\\s*(single|multiple)\\s+((?!(::))[a-zA-Z0-9_]+)\\s+((?!(::))[a-zA-Z0-9_]+)\\s*::\\s*((?!(\\-))[a-zA-Z_]+)\\s*",
+				"match": "^\\s*(single|multiple)\\s+((?!(::))[a-zA-Z0-9_]+)\\s+((?!(::))[a-zA-Z0-9_]+)\\s*::\\s*((?!(\\-))[a-zA-Z_0-9]+)\\s*",
 				"captures": {
 					"0": {
 						"name": "keyword.ott"
@@ -250,7 +270,7 @@
 		},
 		"variant": {
 			"patterns": [{
-				"match": "^\\s*(\\|)\\s+((?!(::)).*)\\s*(::)\\s*(M|S|(\\s*))\\s*(::)\\s*([_a-zA-Z]+)",
+				"match": "^\\s*(\\|)\\s+((?!(::)).*)\\s*(::)\\s*(M|S|(\\s*))\\s*(::)\\s*([_a-zA-Z0-9]+)",
 				"captures": {
 
 					"1": {
@@ -300,6 +320,55 @@
 					},
 					"5": {
 						"name": "variable.ott"
+					}
+
+				}
+			}]
+		},
+		"binddecl": {
+			"patterns": [{
+				"name": "keyword",
+				"match": "\\(\\+\\s*(bind)\\s+((?!(\\+\\)))(.*))\\s+in\\s+((?!(\\+\\)))(.*))\\+\\)",
+				"captures": {
+
+					"1": {
+						"name": "keyword.ott"
+					},
+					"2": {
+						"name": "keyword.ott"
+					},
+					"3": {
+						"name": "entity.name.function.ott"
+					},
+					"4": {
+						"name": "entity.name.function.ott"
+					},
+					"5": {
+						"name": "entity.name.function.ott"
+					}
+
+				}
+			}]
+		},
+		"bindgroup": {
+			"patterns": [{
+				"match": "(\\(\\+)((?!((\\+\\))|(\\=)|(union)))(.*))\\s(\\=)\\s((?!((\\+\\))|(\\=)|(union)))(.*))(\\s(union)\\s(?!((\\+\\))|(\\=)|(union)))(.*))(\\+\\))",
+				"captures": {
+
+					"7": {
+						"name": "entity.name.function.ott"
+					},
+					"16": {
+						"name": "keyword.ott"
+					},
+					"1": {
+						"name": "keyword.ott"
+					},
+					"8": {
+						"name": "keyword.ott"
+					},
+					"22": {
+						"name": "keyword.ott"
 					}
 
 				}
